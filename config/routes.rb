@@ -3,7 +3,15 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "homes#top"
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:show, :index, :edit, :update]
   end
+
+  get "customers" => "public/customers#show", as: "customer"
+  get "customers/:id/edit" => "public/customers#edit", as: "edit_customer"
+  patch "customers/:id" => "public/customers#update", as: "update_customer"
+  get "customers/:id/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
+  patch "customers/:id/withdraw" => "customers#withdraw", as: "withdraw"
 
   get "homes/about"=>"public/homes#about"
 
