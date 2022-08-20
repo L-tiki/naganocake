@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
+
   root :to =>"public/homes#top"
   namespace :admin do
     root "homes#top"
   end
   get "homes/about"=>"public/homes#about"
+
+namespace :admin do
+    resources :items,only:[:index,:new,:create,:show,:edit]
+  end
 
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
    get "addresses/:id" => "public/addresses#edit", as: "address"
    patch "addresses/:id" => "public/addresses#update"
    delete "addresses/:id" => "public/addresses#destroy"
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
