@@ -49,4 +49,7 @@ $git checkout develop (developブランチに移動)
 $git pull origin develop (リモートの統合ブランチの最新版をプル、動作確認)
 $git checkout 自分の作業ブランチ (自分の作業ブランチに移動)
 $git merge origin/develop (動作に問題がなければ自分のブランチにも反映)
+
 $git push origin 自分の作業ブランチ (リモートの自分のブランチに反映)
+
+
