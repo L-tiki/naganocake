@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
+
   root :to =>"public/homes#top"
   namespace :admin do
     root "homes#top"
   end
   get "homes/about"=>"public/homes#about"
+
+namespace :admin do
+    resources :items,only:[:index,:new,:create,:show,:edit]
+  end
 
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -13,6 +19,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+
 
 
 
