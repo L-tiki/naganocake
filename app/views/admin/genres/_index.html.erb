@@ -1,0 +1,14 @@
+<table class="table table-bordered" style="width: 12rem;">
+  <thead>
+    <tr>
+      <td>ジャンル検索</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% genres.each do |genre| %>
+    <tr>
+      <td><%= genre.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

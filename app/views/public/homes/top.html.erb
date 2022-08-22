@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2">
-      <p>ジャンル検索</p>
+        <%= render 'admin/genres/index', genres: @genres %>
       </div>
       <div class="col-md-9 offset-md-1">
       <p>ようこそ、ながのCAKEへ！<br>
@@ -10,7 +10,10 @@
       会員でない方も商品の閲覧はできますが、<br>
       購入には会員登録が必要になります。</p>
       <p>新着商品</p>
-      <%= link_to "全ての商品を見る" %>
+
+      <div class = "row justify-content-end">
+       <%= link_to "全ての商品を見る＞" %>
+      </div>
       </div>
     </div>
   </div>
