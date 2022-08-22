@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     root "homes#top"
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:show, :index, :edit, :update]
+    resources :orders, only: [:index]
   end
 
   get "customers" => "public/customers#show", as: "customer"
