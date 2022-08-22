@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-6">
       <h2>マイページ</h2>
-    </div>
-    <div class="row">
+
+
       <table>
         <tr>
           <td><h2>登録情報</h2></td>
           <td><%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-success" %></td>
         </tr>
       </table>
-    </div>
-    <div class="row">
+
+
       <table class="table">
         <tr>
           <td>氏名</td>
@@ -38,16 +38,15 @@
           <td><%= @customer.telephone_number %></td>
         </tr>
       </table>
-    </div>
-    <div class="row">
+
+
       <table>
         <tr>
           <td><h2>配送先</h2></td>
           <td><%= link_to "一覧を見る", class: "btn btn-info" %></td>
         </tr>
       </table>
-    </div>
-    <div class="row">
+
       <table>
         <tr>
           <td><h2>注文履歴</h2></td>
@@ -55,6 +54,6 @@
           <td><%= link_to "一覧を見る", class: "btn btn-info" %></td>
         </tr>
       </table>
-    </div>
+   </div>
   </div>
 </div>

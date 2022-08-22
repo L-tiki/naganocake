@@ -13,7 +13,7 @@
           <% if customer_signed_in? %>
             <p>ようこそ、<%= current_customer.last_name %>さん！</p>
             <li><%= link_to "マイページ", customer_path, class: "header-button btn text-light" %></li>  <!--パス未確認 -->
-            <li><%= link_to "商品一覧", class: "header-button btn text-light" %></li>  <!--パス未確認 -->
+            <li><%= link_to "商品一覧",  class: "header-button btn text-light" %></li>  <!--パス未確認 -->
             <li><%= link_to "カート", class: "header-button btn text-light" %></li>  <!--パス未確認 -->
             <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header-button btn text-light" %></li>
 
