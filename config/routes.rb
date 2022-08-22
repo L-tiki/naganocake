@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-
+  namespace :public do
+    get 'orders/new'
+    get 'orders/index'
+    get 'orders/show'
+  end
   root :to =>"public/homes#top"
 
   namespace :public do
