@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
   root :to =>"public/homes#top"
+
+  namespace :public do
+    resources :items,only:[:index,:show]
+  end
 
   namespace :admin do
     root "homes#top"

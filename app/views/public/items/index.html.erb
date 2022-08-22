@@ -1,0 +1,13 @@
+<h1>商品一覧</h1>
+<% @items.each do |items|%>
+<%=link_to public_item_path(items) do %>
+<%=image_tag items.image%>
+<%end%>
+<h5>商品名</h5>
+<%=link_to public_item_path(items) do %>
+<%=items.name%>
+<%end%>
+￥<%=items.price%>
+
+<% end %>
+<%= paginate @items %>
