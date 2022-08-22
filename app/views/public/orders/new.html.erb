@@ -1,0 +1,13 @@
+<h2>注文情報入力</h2>
+
+<%= from_with model:
+<h3>支払方法</h3>
+<!-- クレジットカード -->
+<%= f.radio_button :payment_method, "credit_card" %>
+<%= f.label "クレジットカード" %>
+</br>
+<!-- 銀行振込 -->
+<%= f.radio_button :payment_method, "transfer" %>
+<%= f.label "銀行振込" %>
+
+<h3>お届け先</h3>
