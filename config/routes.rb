@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "homes/about"=>"public/homes#about"
 
   namespace :admin do
-    resources :items,only:[:index,:new,:create,:show,:edit]
+    resources :items,only:[:index,:new,:create,:show,:edit,:update]
   end
 
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
