@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   end
   root :to =>"public/homes#top"
 
-  namespace :public do
+  scope module: :public do
     resources :items,only:[:index,:show]
+    resources :addresses, only: [:create, :index, :destroy, :edit, :update]
   end
 
   namespace :admin do
@@ -37,13 +38,6 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-
-  #resource :addresses, only: [:creste, :index, :destroy, :edit, :update]
-  get "addresses"=>"public/addresses#index"
-  post "addresses"=>"public/addresses#create"
-  get "addresses/:id" => "public/addresses#edit", as: "address"
-  patch "addresses/:id" => "public/addresses#update"
-  delete "addresses/:id" => "public/addresses#destroy"
 
   #resources :cart_items, only: [:index, :create, :update, :destroy]
   #delete 'cart_items' => 'cart_items#destroy_all', as: 'destroy_all'
