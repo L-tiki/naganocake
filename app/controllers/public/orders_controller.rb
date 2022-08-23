@@ -3,17 +3,18 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def index
+  def confirm
+    @order = Order.new(order_params)
+    @cart_items = current_customer.cart_items
   end
 
-  def show
+  def index
   end
 
   def create
   end
 
-  def confirm
-    @order = Order.new(order_params)
+  def show
   end
 
   def complete

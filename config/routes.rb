@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
+    get "orders/complete" => "orders#complete"
+    post "orders/confirm" => "oders#confirm"
+    resources :orders, only:[:new,:create,:index,:show]
   end
   root :to =>"public/homes#top"
 
