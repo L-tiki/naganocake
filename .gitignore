@@ -38,8 +38,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-<<<<<<< HEAD
 /config/environments/development.rb
-=======
-/config/environments/development.rb
->>>>>>> origin/develop

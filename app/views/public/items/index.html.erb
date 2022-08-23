@@ -1,13 +1,12 @@
-<h1>商品一覧</h1>
-<% @items.each do |items|%>
-<%=link_to public_item_path(items) do %>
-<%=image_tag items.image%>
-<%end%>
-<h5>商品名</h5>
-<%=link_to public_item_path(items) do %>
-<%=items.name%>
-<%end%>
-￥<%=items.price%>
+<div class="container">
+ <div class="row my-5">
+  <div class="col-sm-3">
+    <%= render 'admin/genres/index', genres: @genres %>
+  </div>
 
-<% end %>
-<%= paginate @items %>
+   <div class="col-sm-9">
+    <h2>商品一覧(全<%= Item.count %>件)</h2>
+     <%= render 'public/items/index', items: @items %>
+   </div>
+  </div>
+</div>
