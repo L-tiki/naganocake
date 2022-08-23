@@ -2,5 +2,9 @@
 <h1><%=@item.name%></h1>
 <%=@item.introduction%>
 ￥<%=@item.price%>(税込)
-
-
+<%=form_with model: @cart_item,url: cart_items_path,method: :post do |f| %>
+<%= f.hidden_field :item_id,:value =>@item.id%>
+<%= f.hidden_field :customer_id, :value => current_customer.id %>
+<%= f.select :amount, [['1',1], ['2',2], ['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9',9],['10',10]] %>
+<%=f.submit"カートに入れる"%>
+<%end%>
