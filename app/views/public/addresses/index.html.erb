@@ -40,8 +40,9 @@
         			 <%= address.name %>
         		  </td>
         		  <td>
-            		<%= link_to "編集する", address_path(address), class:"btn btn-primary btn-md" %>
-            		<%= link_to "削除する", address_path(address), class:"btn btn-danger btn-md", method: :delete %>
+            		<%= link_to "編集する", edit_address_path(address.id), class:"btn btn-primary btn-md" %>
+            		<%= link_to "削除する", address_path(address), class:"btn btn-danger btn-md", method: :delete,
+            		"data-confirm" => "削除します。よろしいですか？"%>
         		  </td>
       	    </tr>
       	  </tbody>

@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h2 class="offset-1 my-3">注文情報入力</h2>
+
+  <%= form_with model: @order, url: public_orders_confilm_path, method: :POST, local: true do |f| %>
+    <h3>支払方法</h3>
+    <!-- クレジットカード -->
+    <%= f.radio_button :payment_method, "credit_card" %>
+    <%= f.label "クレジットカード" %>
+    </br>
+    <!-- 銀行振込 -->
+    <%= f.radio_button :payment_method, "transfer" %>
+    <%= f.label "銀行振込" %>
+
+    <h3>お届け先</h3>
+    <!--自分の住所 -->
+
+    <!-- 配送先 -->
+
+    <!-- 新規住所入力 -->
+
+    <%= f.submit "確認画面へ進む", class: "btn btn-success" %>
+  <% end %>
+</div>
