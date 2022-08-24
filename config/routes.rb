@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'order_details/update'
+  end
   namespace :public do
     get "orders/complete" => "orders#complete"
-    post "orders/confirm" => "oders#confirm"
+    post "orders/confirm" => "orders#confirm"
     resources :orders, only:[:new,:create,:index,:show]
   end
   root :to =>"public/homes#top"
