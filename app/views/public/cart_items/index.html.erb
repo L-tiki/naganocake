@@ -5,7 +5,7 @@
    </div>
    <div class="col-sm-8">
     <div class="button_cart_item">
-      <%= link_to "カートを空にする", cart_items_destroy_all_path(@cart_items), method: :delete,class:"btn btn-danger",
+      <%= link_to "カートを空にする", destroy_all_path(@cart_items), method: :delete,class:"btn btn-danger",
          "data-confirm" => "カート内商品を全て削除します。よろしいですか？" %>
     </div>
    </div>
@@ -13,16 +13,33 @@
      <table class="table table-bordered" style="margin-top: 20px;">
       <thead>
        <tr>
-      　<th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
+      　<th class="cell1">商品名</th>
+        <th class="cell2">単価(税込)</th>
+        <th class="cell3">数量</th>
+        <th class="cell4">小計</th>
+        <th class="cell5"></th>
        </tr>
       </thead>
 
       <tbody>
-      <!--メモ帳-->
+       <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td class="cell1"><%= image_tag cart_item.item.image, size: '50x50' %><%= cart_item.item.name %></td>
+          <td class="cell2"><%= cart_item.item.with_tax_price %></td>
+          <td class="cell3">
+           <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local: true do |f| %>
+  			        <%= f.select :amount, (1..20).map { |i| [i, i]} %>
+  			        <%= f.submit "変更", class: "btn btn-success" %>
+  			      <% end %></td>
+          <td class="cell4"><%= cart_item.subtotal%></td>
+          <td class="cell5">
+            <div class="button_cart_item text-center">
+              <%= link_to '削除する', cart_item_path(cart_item.id), method: :delete, class:'btn btn-danger',
+              "data-confirm" => "削除します。よろしいですか？" %>
+            </div>
+          </td>
+        </tr>
+       <% end %>
       </tbody>
 
     </table>
@@ -37,7 +54,7 @@
      <tbody>
       <tr>
        <td>合計金額</td>
-       <td><%= @total_price.to_s(:delimited) %></td>
+       <td><%= @total.round.to_s(:delimited)%></td>
       </tr>
      </tbody>
     </table>

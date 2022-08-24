@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'order_details/update'
+  end
   namespace :public do
     get "orders/complete" => "orders#complete"
     post "orders/confirm" => "orders#confirm"
@@ -9,6 +12,8 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :items,only:[:index,:show]
     resources :addresses, only: [:create, :index, :destroy, :edit, :update]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+     delete 'cart_items' => 'cart_items#destroy_all', as: 'destroy_all'
   end
 
   namespace :admin do
@@ -39,12 +44,6 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  #resources :cart_items, only: [:index, :create, :update, :destroy]
-  #delete 'cart_items' => 'cart_items#destroy_all', as: 'destroy_all'
-  get "cart_items" => "public/cart_items#index"
-  patch "cart_items/:id" => "public/cart_items#update"
-  post "cart_items" => "public/cart_items#create"
-  delete "cart_items/:id" => "public/cart_items#destroy"
-  delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
