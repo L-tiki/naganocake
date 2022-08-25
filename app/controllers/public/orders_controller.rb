@@ -42,6 +42,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders=Order.all
   end
 
   def create
@@ -66,6 +67,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order=Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   def complete
