@@ -19,7 +19,8 @@ class Public::OrdersController < ApplicationController
 
     #『登録済住所から選択』を選択した場合
     elsif params[:order][:address_number] == "2"
-			@address = Address.find_by(address: @order.address)
+
+			@address = Address.find(params[:order][:registered])
 			@order.postal_code = @address.postal_code
 			@order.address = @address.address
 			@order.name = @address.name
@@ -27,12 +28,16 @@ class Public::OrdersController < ApplicationController
 		#『新しいお届け先』を選択した場合
 		elsif params[:order][:address_number] == "3"
 		  @address = Address.new
+		  @address.customer_id = current_customer.id
+		  @address.name = params[:order][:name]
+		  @address.postal_code = params[:order][:postal_code]
+		  @address.address = params[:order][:address]
 
       @order.postal_code = @address.postal_code
       @order.name = @address.name
       @order.address = @address.address
       @address.save
-      else
+    else
       render :new
     end
   end
@@ -41,7 +46,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-　  order = Order.new(order_params)
+    order = Order.new(order_params)
     cart_items = current_customer.cart_items
     order.customer_id = current_customer.id
     order.shipping_cost = 800
@@ -69,6 +74,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status, :payment_method)
-end
+    params.require(:order).permit(:postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method, :status)
+  end
 end
