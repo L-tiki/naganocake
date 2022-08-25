@@ -27,7 +27,6 @@ class Public::OrdersController < ApplicationController
 		#『新しいお届け先』を選択した場合
 		elsif params[:order][:address_number] == "3"
 		  @address = Address.new
-
       @order.postal_code = @address.postal_code
       @order.name = @address.name
       @order.address = @address.address
