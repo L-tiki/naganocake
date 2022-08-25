@@ -32,7 +32,6 @@ class Public::OrdersController < ApplicationController
 		  @address.name = params[:order][:name]
 		  @address.postal_code = params[:order][:postal_code]
 		  @address.address = params[:order][:address]
-
       @order.postal_code = @address.postal_code
       @order.name = @address.name
       @order.address = @address.address
