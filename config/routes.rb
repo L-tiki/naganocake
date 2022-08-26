@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get 'order_details/update'
+    patch 'order_details/:id' => 'order_details#update'
   end
   namespace :public do
     get "orders/complete" => "orders#complete"
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     root "homes#top"
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:show, :index, :edit, :update]
-    resources :orders, only: [:index]
+    resources :orders, only: [:index, :show, :update]
   end
 
   get "customers" => "public/customers#show", as: "customer"
