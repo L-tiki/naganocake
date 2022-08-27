@@ -13,7 +13,7 @@
 
   <div class="row justify-content-center">
     <div class="col-2"><%= link_to "退会しない", edit_customer_path(current_customer), class: "btn btn-primary" %></div>
-    <div class="col-2"><%= link_to "退会する", withdraw_path, method: :patch, class: "btn btn-danger" %></div>
+    <div class="col-2"><%= link_to "退会する", withdraw_path, method: :patch, class: "btn btn-danger", "data-confirm" => "退会するのかい？本当にいいのかい？(＾ω＾)" %></div>
   </div>
 
 </div>

@@ -29,8 +29,8 @@
 				    <% end %>
           </td>
           <td class="border-dark"><%= order.total_payment.to_s(:delimited, delimiter: ',') %></td>
-          <td class="border-dark"><%= order.status_i18n %></td> <!-- _i18nでenumを日本語化 -->
-          <td class="border-dark"><%= link_to "表示する",public_order_path(order.id), class: "btn btn-primary" %></td>
+          <td class="border-dark"><%= order.status_i18n %></td>
+          <td class="border-dark"><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
       <% end %>
     </tbody>
   </table>
