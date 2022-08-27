@@ -6,6 +6,9 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+         validates :postal_code,length: { minimum: 1, maximum: 7 }
+         validates :telephone_number,length: { minimum: 6, maximum: 11 }
 
   #会員フルネーム
   def full_name
