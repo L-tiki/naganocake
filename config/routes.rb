@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   end
 
   get "customers" => "public/customers#show", as: "customer"
-  get "customers/info/edit" => "public/customers#edit", as: "edit_customer"
-  patch "customers/info" => "public/customers#update", as: "update_customer"
-  get "customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
-  patch "customers/withdraw" => "customers#withdraw", as: "withdraw"
+  get "customers/:id/edit" => "public/customers#edit", as: "edit_customer"
+  patch "customers/:id" => "public/customers#update", as: "update_customer"
+  get "customers/:id/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
+  patch "customers/:id/withdraw" => "public/customers#withdraw", as: "withdraw"
 
   get "homes/about"=>"public/homes#about"
 
