@@ -42,7 +42,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-   @customer = current_customer
+    @customer = current_customer
+
     @orders= @customer.orders.page(params[:page]).per(10)
   end
 
@@ -64,7 +65,7 @@ class Public::OrdersController < ApplicationController
     #cartアイテムの削除
     current_customer.cart_items.destroy_all
     #カラムの代入
-    redirect_to public_orders_complete_path
+    redirect_to orders_complete_path
   end
 
   def show

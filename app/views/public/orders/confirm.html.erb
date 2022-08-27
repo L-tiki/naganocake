@@ -59,7 +59,7 @@
   </div>
   <div class="row">
     <div class="col text-center">
-      <%= form_with model: @order, url: public_orders_path, method: :post, local: true do |f| %>
+      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
         <%= f.hidden_field :name, value: @order.name %>
         <%= f.hidden_field :address, value: @order.address %>
         <%= f.hidden_field :postal_code, value: @order.postal_code %>
