@@ -1,6 +1,18 @@
 ja:  # 日本語の設定を行う
   enums: # enumの設定を行う
     order: #モデル名
-      payment_method: #カラム名
-        credit_card: "クレジットカード" # [enumで番号と紐付けた要素]:# 要素の数だけ追加する
+      payment_method: #カラム名]
+        credit_card: "クレジットカード"
         transfer: "銀行振込"
+      status: #カラム名
+        payment_wait: "入金待ち"
+        payment_confirm: "入金確認"
+        making: "製作中"
+        shipping_preparation: "発送準備中"
+        shipped: "発送済み"
+    order_detail: #モデル名
+      making_status: #カラム名
+        making_not: "制作不可"
+        making_wait: "制作待ち"
+        making_now: "制作中"
+        making_comp: "制作完了"
