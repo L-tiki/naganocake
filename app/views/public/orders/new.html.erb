@@ -2,7 +2,7 @@
   <div class="row">
     <h2 class="offset-1 my-3">注文情報入力</h2>
 
-    <%= form_with model: @order, url: public_orders_confirm_path, method: :POST, local: true do |f| %>
+    <%= form_with model: @order, url: orders_confirm_path, method: :POST, local: true do |f| %>
       <h3>支払方法</h3>
       <!-- クレジットカード -->
       <%= f.radio_button :payment_method, "credit_card" %>
